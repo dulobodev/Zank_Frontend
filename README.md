@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 💰 Zank - Frontend
 
 Landing page moderna e responsiva para o **Zank**, uma plataforma de controle financeiro inteligente integrada com WhatsApp.
@@ -283,3 +284,6 @@ Para mais informações sobre o Zank, entre em contato através dos canais ofici
 ---
 
 Desenvolvido com ❤️ pela equipe Zank
+=======
+
+>>>>>>> 7317a6038295b11058f1e16067c4e8ef5e42fb24
