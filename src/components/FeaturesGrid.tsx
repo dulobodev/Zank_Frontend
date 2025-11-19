@@ -1,24 +1,27 @@
 import React from 'react';
 import FeatureCard from './FeatureCard';
+import { useInView } from '@/hooks/use-in-view';
 
 const FeaturesGrid: React.FC = () => {
+  const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
+  
   const features = [
     {
       icon: "https://api.builder.io/api/v1/image/assets/TEMP/4de5a2906114115d6cbce537305388575611393b?width=172",
       title: "Bot com IA",
-      description: "Receba atendimento automatizado e inteligente, com simples palavras você consegue utilizar o bot.",
+      description: "Receba atendimento automatizado e inteligente. Com poucas palavras você consegue utilizar o bot.",
       iconAlt: "Chatbot"
     },
     {
       icon: "https://api.builder.io/api/v1/image/assets/TEMP/51ce3024f041b01be14e8f1736cf68c45c542d6e?width=172",
       title: "Controle o seu dinheiro",
-      description: "Tenha controle total do seu saldo, despesas e receitas com relatórios claros direto no WhatsApp para tomar decisões com segurança.",
+      description: "Tenha controle total do seu saldo, despesas e metas. Receba relatórios diários direto no WhatsApp para tomar decisões com segurança.",
       iconAlt: "Money Box"
     },
     {
       icon: "https://api.builder.io/api/v1/image/assets/TEMP/40e027fa4f6def5205c27c326957d4e6c649e997?width=172",
       title: "Lembretes personalizados",
-      description: "Não esqueça mais contas! Programe lembretes automáticos e receba notificações para manter suas finanças sempre em dia.",
+      description: "Não esqueça mais contas! Programe lembretes e receba notificações para manter suas finanças sempre em dia.",
       iconAlt: "Bell"
     },
     {
@@ -42,8 +45,11 @@ const FeaturesGrid: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-[#E8E8E8] px-[150px] py-[100px] max-md:px-[50px] max-md:py-[80px] max-sm:px-5 max-sm:py-[50px]">
-      <div className="grid grid-cols-3 grid-rows-2 gap-x-[100px] gap-y-[80px] justify-items-center max-w-[1400px] mx-auto max-md:grid-cols-2 max-md:gap-[40px] max-sm:grid-cols-1 max-sm:gap-[30px]">
+    <section 
+      ref={ref}
+      className="w-full bg-zank-gray px-[150px] py-[120px] max-xl:px-[100px] max-lg:px-[80px] max-md:px-[50px] max-md:py-[100px] max-sm:px-5 max-sm:py-[60px]"
+    >
+      <div className="grid grid-cols-3 grid-rows-2 gap-x-[100px] gap-y-[80px] justify-items-center max-w-[1400px] mx-auto max-xl:gap-x-[60px] max-xl:gap-y-[60px] max-lg:grid-cols-2 max-lg:grid-rows-3 max-lg:gap-x-[40px] max-lg:gap-y-[50px] max-md:grid-cols-2 max-md:gap-[40px] max-sm:grid-cols-1 max-sm:gap-[30px]">
         {features.map((feature, index) => (
           <FeatureCard
             key={index}
@@ -51,6 +57,8 @@ const FeaturesGrid: React.FC = () => {
             title={feature.title}
             description={feature.description}
             iconAlt={feature.iconAlt}
+            index={index}
+            isInView={isInView}
           />
         ))}
       </div>

@@ -1,73 +1,285 @@
-# Welcome to your Lovable project
+# 💰 Zank - Frontend
 
-## Project info
+Landing page moderna e responsiva para o **Zank**, uma plataforma de controle financeiro inteligente integrada com WhatsApp.
 
-**URL**: https://lovable.dev/projects/a22c4742-517a-4c3c-b0a2-8c1110c28944
+## 📋 Sobre o Projeto
 
-## How can I edit this code?
+O Zank é uma solução inovadora para gestão financeira pessoal que funciona diretamente pelo WhatsApp. Esta landing page apresenta as funcionalidades, benefícios e planos da plataforma de forma atraente e intuitiva.
 
-There are several ways of editing your application.
+### 🎯 Características Principais
 
-**Use Lovable**
+- **Design Moderno**: Interface limpa e profissional com paleta de cores verde limão (#9EEA6C) e cinza claro (#E8E8E8)
+- **Totalmente Responsivo**: Adaptável para desktop, tablet e mobile
+- **Navegação Suave**: Scroll suave entre seções e links de navegação funcionais
+- **Menu Mobile**: Menu hambúrguer animado para dispositivos móveis
+- **Performance Otimizada**: Lazy loading de imagens e otimizações de carregamento
+- **Acessibilidade**: Componentes semânticos e navegação por teclado
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a22c4742-517a-4c3c-b0a2-8c1110c28944) and start prompting.
+## 🛠️ Tecnologias Utilizadas
 
-Changes made via Lovable will be committed automatically to this repo.
+- **React 18.3** - Biblioteca JavaScript para construção de interfaces
+- **TypeScript 5.8** - Superset JavaScript com tipagem estática
+- **Vite 5.4** - Build tool rápida e moderna
+- **Tailwind CSS 3.4** - Framework CSS utility-first
+- **React Router DOM 6.30** - Roteamento para aplicações React
+- **shadcn/ui** - Componentes UI acessíveis e customizáveis
+- **Radix UI** - Componentes primitivos acessíveis
+- **Lucide React** - Biblioteca de ícones
 
-**Use your preferred IDE**
+## 📦 Pré-requisitos
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Antes de começar, certifique-se de ter instalado:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Node.js** (versão 18 ou superior)
+- **npm** ou **yarn** ou **bun** (gerenciador de pacotes)
 
-Follow these steps:
+## 🚀 Instalação
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. **Clone o repositório**
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+git clone <URL_DO_REPOSITORIO>
+cd Zank_FrontEnd
 ```
 
-**Edit a file directly in GitHub**
+2. **Instale as dependências**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm install
+# ou
+yarn install
+# ou
+bun install
+```
 
-**Use GitHub Codespaces**
+## ⚙️ Configuração de Ambiente
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Antes de executar o projeto, copie o arquivo `env.example` para `.env` e ajuste o endpoint da API (por padrão usamos `http://localhost:8000`):
 
-## What technologies are used for this project?
+```bash
+cp env.example .env
+```
 
-This project is built with:
+No PowerShell:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```powershell
+Copy-Item env.example .env
+```
 
-## How can I deploy this project?
+Edite `VITE_API_URL` conforme o ambiente (produção, homologação, etc). Essa variável é utilizada pelos serviços em `src/services/api.ts` para montar as chamadas `POST /users/`, `POST /auth/token` e `POST /auth/refresh_token`.
 
-Simply open [Lovable](https://lovable.dev/projects/a22c4742-517a-4c3c-b0a2-8c1110c28944) and click on Share -> Publish.
+## 💻 Como Executar
 
-## Can I connect a custom domain to my Lovable project?
+### Modo Desenvolvimento
 
-Yes, you can!
+Execute o servidor de desenvolvimento:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```bash
+npm run dev
+# ou
+yarn dev
+# ou
+bun run dev
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+A aplicação estará disponível em: `http://localhost:8080`
+
+### Build de Produção
+
+Para criar um build de produção:
+
+```bash
+npm run build
+# ou
+yarn build
+# ou
+bun run build
+```
+
+### Preview do Build
+
+Para visualizar o build de produção localmente:
+
+```bash
+npm run preview
+# ou
+yarn preview
+# ou
+bun run preview
+```
+
+### Linting
+
+Execute o linter para verificar o código:
+
+```bash
+npm run lint
+# ou
+yarn lint
+# ou
+bun run lint
+```
+
+## 📁 Estrutura do Projeto
+
+```
+Zank_FrontEnd/
+├── public/                 # Arquivos estáticos
+│   ├── favicon.ico
+│   ├── placeholder.svg
+│   └── robots.txt
+├── src/
+│   ├── assets/            # Imagens e recursos
+│   │   └── card-background.png
+│   ├── components/        # Componentes React
+│   │   ├── ui/           # Componentes UI (shadcn/ui)
+│   │   ├── FeatureCard.tsx
+│   │   ├── FeaturesGrid.tsx
+│   │   ├── FinalCTASection.tsx
+│   │   ├── Header.tsx
+│   │   ├── HeroSection.tsx
+│   │   ├── HowItWorksSection.tsx
+│   │   ├── NavLink.tsx
+│   │   ├── PricingSection.tsx
+│   │   └── StatsSection.tsx
+│   ├── config/           # Configurações (ex.: API base URL)
+│   ├── hooks/            # Custom hooks
+│   ├── lib/              # Utilitários (tokens, helpers, etc.)
+│   ├── services/         # Camada de acesso à API (cadastro, login, refresh)
+│   ├── pages/            # Páginas da aplicação
+│   │   ├── Auth.tsx      # Formulários de cadastro e login
+│   │   ├── Index.tsx
+│   │   └── NotFound.tsx
+│   ├── App.tsx           # Componente principal
+│   ├── main.tsx          # Ponto de entrada
+│   ├── index.css         # Estilos globais
+│   └── vite-env.d.ts     # Tipos do Vite
+├── index.html            # HTML principal
+├── package.json          # Dependências e scripts
+├── tailwind.config.ts    # Configuração do Tailwind
+├── tsconfig.json         # Configuração do TypeScript
+└── vite.config.ts        # Configuração do Vite
+```
+
+## 🎨 Componentes Principais
+
+### Header
+Componente de navegação com menu responsivo e links para as seções da página.
+
+### HeroSection
+Seção hero com título principal, descrição e botões de ação (CTA).
+
+### StatsSection
+Seção de estatísticas sobre a realidade financeira do Brasil com fundo verde limão.
+
+### FeaturesGrid
+Grid de funcionalidades com 6 cards destacando as principais features do Zank:
+- Bot com IA
+- Controle do dinheiro
+- Lembretes personalizados
+- Gerenciamento de gastos
+- Organização de metas
+- Visualização de despesas
+
+### HowItWorksSection
+Seção explicativa sobre como o Zank funciona, com exemplos práticos de uso.
+
+### PricingSection
+Seção de planos com toggle entre mensal e anual, incluindo ícones decorativos.
+
+### FinalCTASection
+Call-to-action final com ilustração e botão de ação principal.
+
+## 🔐 Autenticação & Integração com API
+
+- Rotas dedicadas `/auth?mode=register` e `/auth?mode=login` com UI moderna.
+- Validação client-side com `react-hook-form` + `zod`, seguindo as mesmas regras do backend (`StrongPassword`, `PhoneValidate`).
+- Integração direta com a API FastAPI (`POST /users/`, `POST /auth/token`, `POST /auth/refresh_token`) respeitando o `VITE_API_URL`.
+- Armazenamento seguro do token JWT no `localStorage` (`zank.accessToken`) para ser usado em requests autenticados.
+- Feedback imediato com toasts e tratamento de erros em português.
+
+## 🎨 Paleta de Cores
+
+- **Verde Limão**: `#9EEA6C` - Cor principal de destaque
+- **Cinza Escuro**: `#204749` - Cor de texto e elementos escuros
+- **Cinza Claro**: `#E8E8E8` - Cor de fundo das seções
+- **Branco**: `#FFFFFF` - Cor de fundo de cards e elementos claros
+
+## 📱 Responsividade
+
+A aplicação é totalmente responsiva com breakpoints configurados:
+
+- **Desktop**: Layout completo com todas as funcionalidades
+- **Tablet** (max-md): Layout adaptado com grid de 2 colunas
+- **Mobile** (max-sm): Layout em coluna única com menu hambúrguer
+
+## 🔗 Navegação
+
+A página possui navegação por âncoras para as seguintes seções:
+
+- `#home` - Seção inicial (Hero e Stats)
+- `#funcionalidades` - Seção "Como funciona"
+- `#planos` - Seção de preços
+- `#contato` - Seção final de CTA
+- `/auth?mode=register` - Fluxo de cadastro conectado à API
+- `/auth?mode=login` - Fluxo de login com tokens JWT
+
+## 🚀 Deploy
+
+### Vercel
+
+1. Conecte seu repositório à Vercel
+2. Configure a variável `VITE_API_URL`
+3. Deploy automático a cada push
+
+### Netlify
+
+1. Conecte seu repositório à Netlify
+2. Configure o build command: `npm run build`
+3. Configure o publish directory: `dist`
+4. Informe `VITE_API_URL` em *Site settings → Build & deploy → Environment*
+5. Deploy automático a cada push
+
+### Outros Serviços
+
+A aplicação pode ser deployada em qualquer serviço que suporte aplicações estáticas, como:
+- GitHub Pages
+- AWS S3 + CloudFront
+- Azure Static Web Apps
+- Firebase Hosting
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para:
+
+1. Fazer um fork do projeto
+2. Criar uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abrir um Pull Request
+
+## 📝 Scripts Disponíveis
+
+| Script | Descrição |
+|--------|-----------|
+| `npm run dev` | Inicia o servidor de desenvolvimento |
+| `npm run build` | Cria o build de produção |
+| `npm run build:dev` | Cria o build em modo desenvolvimento |
+| `npm run preview` | Visualiza o build de produção localmente |
+| `npm run lint` | Executa o linter ESLint |
+
+## 📄 Licença
+
+Este projeto é privado e proprietário do Zank.
+
+## 👥 Autores
+
+- **Equipe Zank** - Desenvolvimento e design
+
+## 📞 Contato
+
+Para mais informações sobre o Zank, entre em contato através dos canais oficiais.
+
+---
+
+Desenvolvido com ❤️ pela equipe Zank

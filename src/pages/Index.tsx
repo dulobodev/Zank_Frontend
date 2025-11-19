@@ -15,7 +15,7 @@ const Index: React.FC = () => {
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" 
       />
       
-      <main className="w-full relative bg-[#E8E8E8]" style={{ fontFamily: 'Inter, sans-serif' }}>
+      <main className="w-full min-w-0 relative bg-[#E8E8E8] overflow-x-hidden" style={{ fontFamily: 'Inter, sans-serif' }}>
         <Header />
         <HeroSection />
         <StatsSection />
